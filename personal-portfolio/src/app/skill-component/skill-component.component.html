@@ -1,0 +1,13 @@
+<!-- Observable binding input from parent -->
+
+<!-- <p>{{searchText}}</p> -->
+
+ <!-- ng-container used to declare the statements check tag, since it will not available in a build -->
+<!-- Structural Directives are used with * in front, ie, *ngIf, *ngClass etc..-->
+<ng-container *ngIf = "skillShow" >
+    <div class="skill-container" [style.display]= "isSkillsDisplayed">
+        <ng-container *ngFor = "let skill of skills" >
+            <app-skill-item-component (clickOnSkill)= "skillClick($event)" class= "skill-tabs shadow-box-inner" [skill] = "skill"></app-skill-item-component>
+        </ng-container>
+    </div>
+</ng-container> 

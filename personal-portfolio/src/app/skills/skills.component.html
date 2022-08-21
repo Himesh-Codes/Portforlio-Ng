@@ -1,0 +1,18 @@
+<div class="skill-body">
+    <div class="skill-header-con">
+        <h1 class="skill-header">Skills</h1> 
+        <!-- Shorthand of variable toggle in event binding -->
+        <div (click) = "skillShow = !skillShow" (mouseenter) = "skillDisplayToggle()" class="skill-arrow">
+            <img class="arrow-image" [src]="arrowImage" alt="->">
+        </div>
+          <!-- Two way Binding (input) = "inputSearch($event)" , $event to pass the event details
+            We can directly with FormModule use [(ngModel)] = "variable" for two way binding, ngModel will bind value and variable -->
+        <div>
+            <input [(ngModel)] = "searchTags"  type="search" name="searchSkills" id="search-skill">
+            <p>{{searchTags}}</p>
+        </div>
+    </div>
+
+    <app-skill-component (clickOnSkill) = "skillClick($event)" [searchText]= "searchTags" [skills] = "skills" [skillShow] = "skillShow" [isSkillsDisplayed]= "isSkillsDisplayed" ></app-skill-component>
+   
+</div>
