@@ -28,6 +28,8 @@
 
 - Create service with refer to an exist directory inside app folder with name : ng generate service DIRName/SERVICENAME
 
+- Command to create module - ng generate module MODULENAME,
+
 
 # Files Walkthrough
 
@@ -139,12 +141,22 @@ Angular is a modular framework.
 - It is also used to implement the bussiness logics for the components.
 - A service can depends on other service.
 - Command - ng generate service skills/skill-service
-- The decorator @Injectable, used to declare service.
+- The decorator @Injectable, used to declare service. And with metadata named providedIn : 'root' , means this service available in root level, globally throughout the application.
+- We can make it lazy load component using 'any', and module specific by add module classname 'ModuleClass'. Along with the service class mentioned in module @NgModule decorator, provider array.
     # Dependency Injection
     - To use the services in component we use dependency injection. Where the service is injected in the component.
     - Inside component constructor argument, ie, constructor(private skillService: SkillService)
     - Thus a private object instance of service class will available in the component.
     - If multiple service class dependend each other on constructor of each class, we can't create an instance of the service class becuase it is complex. So we use dependency injection, since Angular will take care of all service class instance creation, initialisations etc..
 
+- If the providedIn is not maded as 'root', along with the service class mentioned in module @NgModule decorator, provider array.
+
+    # State Management by Services
+
 # Custom module
-- 
+- The custom modules can be created to modularize a functional part, eg: skills in this app, can be contains in a skill module.
+- Command - ng generate module skills, will create a module in corresponding directory.
+- The created module can be registered in the core app.module.ts.
+- We can register all the components specific to the new module, in the module declarations.
+    # Make components available in root module
+    - The components can be include in the exports of the module to make it available in other modules.
