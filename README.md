@@ -10,6 +10,20 @@
         Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy RemoteSigned
 
     - Install Jquery, Bootstrap : npm install jquery --save,  npm install bootstrap and include the nodemodules path scripts, styles in angular.json to globalize. Now (import * as $ from jquery).
+
+    # Font-awesome
+    - Inside Angular project use cmd: npm install @fortawesome/angular-fontawesome@<version>
+            npm install @fortawesome/fontawesome-svg-core
+            npm install @fortawesome/free-brands-svg-icons
+            npm install @fortawesome/free-regular-svg-icons
+            npm install @fortawesome/free-solid-svg-icons
+
+    - Or we can use ng add @fortawesome/angular-fontawesome
+    - Include declararion of FontAwesomeModule in module.ts.
+    - Create variable in component with the font class that needed to be printed in the component.
+        like import { faCoffee } from '@fortawesome/free-solid-svg-icons'; faCoffee = faCoffee;
+    - Use in HTML <fa-icon [icon]="faCoffee"></fa-icon>.
+    
 # Commands
 
 - Create new app : ng new APP-NAME 
@@ -62,6 +76,7 @@ Angular is a modular framework.
 - If we have a complex component, it should be splitted inaccordance feature/ section, as smaller components. And include the smaller components in the current parent component.
 
 - If multiple service class dependend each other on constructor of each class, we can't create an instance of the service class with this complexity. So the angular uses dependency injection, which picks the service class instance from a Service container.
+- The ngFor loop can associate with object using 'keyvalue' pipe to generate value, key.
     # Template Reference Variable
     - The #var is format used inside the HTML element tag, to get reference to the same element in other HTML element. eg: <p #skillitem> is get used in <div (click)= "skillClick(skillitem.innerHTML)">.
     - On the parent HTML inside child selector tag (clickOnSkill)= "skillClick($event)", we use magic object $event will contains the details of event.
@@ -86,7 +101,10 @@ Angular is a modular framework.
     - The @Output decorator is used with variable = new EventEmitter<type>().
     - The event emitter is used to pass data to upper parents.
     - Then if some value needed to be passed variable.emit("value"), is called.
-    - 
+    - In the parent component html, (clickOnSkill) = "skillClick($event)" 
+    
+# Ng-Container
+- ng-container is a special tag which used to check conditions and place the things inside it in DOM. ng-container will not be available in DOM.
 # Directives
 
 - Component(Using with template ), Attribute(Change appearance and behaviour of components, elements, directives etc..), Structural Directive(DOM manipulation).
@@ -152,6 +170,8 @@ Angular is a modular framework.
 - If the providedIn is not maded as 'root', along with the service class mentioned in module @NgModule decorator, provider array.
 
     # State Management by Services
+    - We can create a global service class to implement, the state of a component items management using a service.
+    - Thus maintain the state of a specific component.
 
 # Custom module
 - The custom modules can be created to modularize a functional part, eg: skills in this app, can be contains in a skill module.
@@ -160,3 +180,15 @@ Angular is a modular framework.
 - We can register all the components specific to the new module, in the module declarations.
     # Make components available in root module
     - The components can be include in the exports of the module to make it available in other modules.
+
+# Angular Routing
+- We can create routing module through CLI, or through commands in CLI : ng new routing-app --routing --defaults
+- If routing is already opted when created app through CLI, in app.module.ts we will have declarations of 'AppRoutingModule' / any routing module we have defined.
+- In the created routing module we have to import the RouterModule with routes and export the RouterModule so that it can be used widely in application.
+- We can define the routes, { path: 'first-component', component: FirstComponent } in this format as array.
+- The 'title' attribute shows the page title.
+- In html of nav 'routerLink' attribute can be used to pass the ref link, 'routerLinkActive' make it active on not.
+- The angular tag <router-outlet></router-outlet> will loads the components inside it according to routes.
+    # Wildcard
+    - Angular have wildcard routing '{ path: '**', component: <component-name> }' to show custom 404 page etc...
+    - All the invalid routes will loads this page
