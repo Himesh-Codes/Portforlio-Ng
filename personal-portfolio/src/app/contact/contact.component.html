@@ -1,0 +1,8 @@
+<div class="about-body bg-white text-black rounded-xl mt-10">
+    <div class="about-container p-10">
+        <h1 class="about-header text-3xl inline-block pb-2">Contact <fa-icon [icon]="contactIcon"></fa-icon></h1> 
+        <ng-container *ngFor="let item of contact | keyvalue">
+            <p><b>{{item.key | contactField}}</b>: {{item.value}}</p>
+        </ng-container>
+    </div>
+</div>

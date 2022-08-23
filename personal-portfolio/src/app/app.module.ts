@@ -3,16 +3,22 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { SkillsModule } from './skills/skills.module';
+import { HomeModule } from './home/home.module';
+import { ContactComponent } from './contact/contact.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { ContactPipe } from 'src/pipes/contactPipe';
 
 @NgModule({
   declarations: [
     AppComponent,
+    ContactComponent,
+    ContactPipe
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    SkillsModule
+    HomeModule,
+    FontAwesomeModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -187,7 +187,7 @@ Angular is a modular framework.
 - In the created routing module we have to import the RouterModule with routes and export the RouterModule so that it can be used widely in application.
 - We can define the routes, { path: 'first-component', component: FirstComponent } in this format as array.
 - The 'title' attribute shows the page title.
-- In html of nav 'routerLink' attribute can be used to pass the ref link, 'routerLinkActive' make it active on not.
+- In html of nav 'routerLink' attribute can be used to pass the ref link, 'routerLinkActive' make it active on not class css.
 - The angular tag <router-outlet></router-outlet> will loads the components inside it according to routes.
     # Wildcard
     - Angular have wildcard routing '{ path: '**', component: <component-name> }' to show custom 404 page etc...
