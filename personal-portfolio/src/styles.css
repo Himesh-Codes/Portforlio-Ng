@@ -1,0 +1,10 @@
+/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css?family=Trirong|Tangerine');
+
+body{
+    background-color: rgb(17, 16, 16);
+}
+:root{
+   font: 14px  "Trirong", serif;
+   color: #fff;
+}
