@@ -1,6 +1,6 @@
-<div class="skill-tabs" (click)= "skillClick(skillitem.innerHTML)">
+<div class="skill-tabs text-center" (click)= "skillClick(skillitem.innerHTML)">
     <!-- Property Binding [src]="VARIABLE" -->
-    <div><img [src]="skill.image" alt="{{skill.name}}" ></div>
+    <div class="w-20 m-auto"><img class="text-lg" [src]="skill.image" alt="{{skill.name}}"></div>
     <!-- The # is template reference variable -->
-    <p #skillitem>{{skill.name | uppercase | skillnamepipe}}</p>
+    <p class="text-black" #skillitem>{{skill.name | uppercase | skillnamepipe}}</p>
 </div>

@@ -1,49 +1,7 @@
-.skill-container{
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    box-sizing: border-box;
-    padding: 10px;
-    margin: 2vw 3vw;
-    justify-content: center;
-}
-
 .skill-tabs{
-    padding: 10px;
-    margin: 2vw 3vw;
-    background-color: #fff;
-    flex: 20%;
-    max-width: 20%;
-    text-align: center;
-    border-radius: 10px;
     cursor: pointer;
-    border: none;
+    @apply  hover:scale-110 hover:shadow-xl hover:border border-black rounded-xl m-5 p-4 text-center shadow-gray-700 shadow-inner w-3/4 md:w-1/4
 }
-
-.skill-tabs:hover{
-    box-shadow: 15px 15px 20px rgba(223, 213, 213, 0.623);
-    -webkit-transform: scale(1.05, 1.05);
-    transform: scale(1.05, 1.05);
-	z-index: 10;
-    border: 1px solid #000000;
-}
-
-.shadow-box-inner{
-    -moz-box-shadow: inset 0 0 10px #000000;
-    -webkit-box-shadow: inset 0 0 10px #000000;
-    box-shadow: inset 0 0 10px #000000;
-}
-
-@media (max-width: 800px) {
-    .skill-container {
-      flex-direction: column;
-    }
-    .skill-tabs{
-        flex: 100% !important;
-        max-width: 100% !important;
-        margin: 1vw 0vw !important;
-    }
-    .arrow-image{
-        width: 10vw;
-    }
+.skill-container {
+    @apply flex flex-wrap justify-center
 }

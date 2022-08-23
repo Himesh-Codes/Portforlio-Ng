@@ -192,3 +192,9 @@ Angular is a modular framework.
     # Wildcard
     - Angular have wildcard routing '{ path: '**', component: <component-name> }' to show custom 404 page etc...
     - All the invalid routes will loads this page
+
+# Tail-wind css
+- Do run the cmds: npm install -D tailwindcss postcss autoprefixer
+                    npx tailwindcss init
+- Refer to the doc: https://tailwindcss.com/docs/guides/angular
+- Like bootstrap we can include the classes.
