@@ -1,8 +1,6 @@
-.skill-tabs img{
-    width: 7vw;
-}
-
 .skill-tabs p{
-    color: black;
-    font-size: 16px;
+    padding: 5px;
+}
+.skill-tabs div{
+    padding: 5px;
 }

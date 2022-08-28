@@ -1,0 +1,9 @@
+<ul class="list-disc">
+    <li>
+        <p><b>{{work.position}}</b></p>
+        <p><b>Company</b>: {{work.company}}</p>
+        <p><b>Tenure</b>: {{work.tenure}} yr(s)</p>
+        <p (click)="seeMoreClicked()" class="text-blue-700 cursor-pointer" *ngIf="isMore">See more...</p>
+        <p *ngIf="!isMore"><b>Description</b>: {{work.description}}</p>
+    </li>
+</ul>

@@ -1,0 +1,10 @@
+<div class="work-body bg-white text-black rounded-xl mt-10">
+    <div class="work-container">
+        <h1 class="work-header p-0 text-3xl inline-block">Work Experience <fa-icon [icon]="workIcon"></fa-icon></h1> 
+        <div class="grid grid-cols-2 gap-4 p-10">
+            <ng-container *ngFor="let work of works">
+                <app-work-experience-item [work]= "work"></app-work-experience-item>
+            </ng-container>
+        </div>
+    </div>
+</div>

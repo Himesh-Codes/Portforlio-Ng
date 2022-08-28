@@ -1,4 +1,18 @@
 <div id="globalBody">
-    <h1><span>Personal </span> <span> Portfolio</span> </h1>
-    <app-skills></app-skills>
+    <nav class="nav-con">
+        <div class="nav-item-con">
+            <div class="sticky-nav" id="navbar-sticky">
+                <ul class="nav-item-list">
+                    <li>
+                    <a routerLink="/home" class="not-active" routerLinkActive="active" aria-current="page">Home</a>
+                    </li>
+                    <li>
+                    <a routerLink="/contact" class="not-active" routerLinkActive="active">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+  </nav>
+  <h1 class="mt-24"><span>Personal </span> <span> Portfolio</span> </h1>
+   <router-outlet></router-outlet>
 </div>
