@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterContentChecked, Component, OnInit } from '@angular/core';
 import { FirebaseApp, initializeApp } from '@firebase/app';
 import { firebaseConfig } from './firebase.config';
 import { AuthService } from './services/auth-service.service';
@@ -8,7 +8,7 @@ import { AuthService } from './services/auth-service.service';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent implements OnInit {
+export class AppComponent implements OnInit, AfterContentChecked {
   public title = 'personal-portfolio';
   public firebaseApi: FirebaseApp = {} as FirebaseApp;
   public loggedIn: boolean = false;
@@ -17,7 +17,14 @@ export class AppComponent implements OnInit {
 
   ngOnInit(){
     this.firebaseApi = initializeApp(firebaseConfig);
+  }
+
+  ngAfterContentChecked(){
     this.loggedIn = this.authService.isAuthorized;
+  }
+
+  public signOut(){
+    this.authService.logout();
   }
 }
 

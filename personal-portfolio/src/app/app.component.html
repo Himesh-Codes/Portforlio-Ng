@@ -10,6 +10,9 @@
                         <li>
                             <a routerLink="/contact" class="not-active" routerLinkActive="active">Contact</a>
                         </li>
+                        <li>
+                            <a class="logout-link" (click)="signOut()">Logout</a>
+                        </li>
                     </ng-container>
                     <ng-container *ngIf="!loggedIn">
                         <li>

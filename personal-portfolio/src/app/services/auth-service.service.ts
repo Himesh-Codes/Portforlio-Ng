@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
-import { getAuth, UserCredential, signInWithEmailAndPassword, createUserWithEmailAndPassword } from 'firebase/auth';
+import { Router } from '@angular/router';
+import { getAuth, UserCredential, signInWithEmailAndPassword, createUserWithEmailAndPassword, signOut } from 'firebase/auth';
 import { IFireBaseSignInResult } from 'src/types/iLogin';
 import { IFireBaseSignupResult } from 'src/types/iRegister';
 
@@ -10,20 +11,20 @@ export class AuthService {
 
   private _isAuthorized: boolean = false;
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   // getter is used to avoid overwrite
   public get isAuthorized(){
     return this._isAuthorized;
   }
 
-  public checkAuth(){
-    const auth = getAuth();
-    const user = auth.currentUser;
-    if (user) {
-      this._isAuthorized = true;
-    }else{
-      this._isAuthorized = false;
+  private set isAuthorized(value: boolean){
+    this._isAuthorized = value;
+    if (value === true) {
+      // redirect to home
+      this.router.navigate(['']);
+    }else {
+      this.router.navigate(['login']);
     }
   }
 
@@ -31,7 +32,7 @@ export class AuthService {
     const auth = getAuth();
     try {
       const userCredential: UserCredential = await signInWithEmailAndPassword(auth, email, password);
-      this._isAuthorized = true;
+      this.isAuthorized = true;
       return {user: userCredential.user, status: "200", message: "LoggedIn Successfully."}
     } catch (error: any) {
       return {status: error?.code, message: error?.message};
@@ -46,6 +47,22 @@ export class AuthService {
     }catch(error: any){
       return {status: error.code, message: error.message};
     }
+  }
+
+  public async logout(){
+    this.isAuthorized = false;
+    const auth = getAuth();
+    signOut(auth).then(()=>{
+      this.router.navigate(['login']);
+    });
+  }
+
+  public redirectHome(){
+    this.router.navigate(['']);
+  }
+
+  public redirectLogin(){
+    this.router.navigate(['login']);
   }
 }
 

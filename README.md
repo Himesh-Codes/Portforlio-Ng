@@ -56,6 +56,18 @@
 - Create service with refer to an exist directory inside app folder with name : ng generate service DIRName/SERVICENAME
 
 - Command to create module - ng generate module MODULENAME,
+- Command for create route guard-  ng generate guard dirpath/GUARDNAME
+    - Here are the 4 types of routing guards available:
+
+        CanActivate: Checks to see if a user can visit a route.
+
+        CanActivateChild: Checks to see if a user can visit a routes children.
+
+        CanDeactivate: Checks to see if a user can exit a route.
+
+        Resolve: Performs route data retrieval before route activation.
+
+        CanLoad: Checks to see if a user can route to a module that lazy loaded.
 
 
 # Files Walkthrough
@@ -240,6 +252,7 @@ Angular is a modular framework.
 
 # ngIfElse
 - This directive can be used with an '<ng-template #loading>' to show the template if expression not match.
+eg: usage can be the loading indication on api hit events.
 
 # Check For Auth
 - The auth token is available in firebase, auth.currentUser property.
@@ -247,3 +260,41 @@ Angular is a modular framework.
     # getter/setter
     - It is used to declare setter/getter by set and get keyword with same function name,ie, 
     public get isAuthorized() , public set isAuthorized().
+
+    # Router Module: Route after login / auth check
+    - We can use <b<Router</b> module of the angular to redirects to different routes. 
+    eg:  Usage this.router.navigate(['']) after loggedIn.
+
+# Route Guard
+- Command - ng generate guard dirpath/GUARDNAME
+- Used for guard the route when in some condition. Eg: If already loggedIn not load login page again.
+- It is somewhat same as service, but can use as the guard logic inside the each guard method.
+- In each guard method we can return a boolean which tells, app.routing.module like  
+    {path: 'home', component: HomeComponent, canActivate: [AuthGuard]},
+- 
+
+# Passing Dynamic data to a Route (via state)
+- If routed via, this.router.navigateByUrl('/dynamic', { state: { id:1 , name:'Angular' } });
+- Get data in component using,
+    constructor(private router:Router, private activatedRoute:ActivatedRoute) {
+          console.log(this.router.getCurrentNavigation().extras.state);
+     }
+ 
+     ngOnInit() {
+          //console.log(history.state);
+          this.product=history.state;
+     }
+
+     constructor(private location:Location){
+          console.log(this.location.getState());
+    }
+
+# Passing static data to a Route (via data)
+- If static data passed through route module, { path: 'static', component: StaticComponent, data :{ id:'1', name:"Angular"}},
+- We can access via,
+
+    ngOnInit() {
+        this.activatedroute.data.subscribe(data => {
+            this.product=data;
+        })
+    }

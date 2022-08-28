@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { AuthService } from 'src/app/services/auth-service.service';
 import { IFireBaseSignInResult, ILoginForm } from 'src/types/iLogin';
 import { LoginService } from './login.service';
 
@@ -16,7 +18,7 @@ export class LoginComponent implements OnInit {
   public errorMessage: string = '';
   public isLoading: boolean = false;
 
-  constructor(private loginService: LoginService) { }
+  constructor(private loginService: LoginService, private authService: AuthService) { }
 
   ngOnInit(): void {
   }
@@ -29,7 +31,6 @@ export class LoginComponent implements OnInit {
         this.errorMessage = result.message;
       }else{
         this.errorMessage =  '';
-        alert(result.message);
       }
     }
     this.isLoading = false;
