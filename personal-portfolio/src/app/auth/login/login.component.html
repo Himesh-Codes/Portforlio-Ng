@@ -1,0 +1,28 @@
+<div class="flex justify-center m-auto">
+    <form #loginForm="ngForm" (ngSubmit)="submitLogin()" class="p-3 rounded-xl border w-1/3">
+        <h1 class="text-2xl py-4 text-center text-white">Login</h1>
+        <div class="grid grid-cols-2 gap-4">
+            <div class="">
+                <label for="email" class="pr-2 m-2 block">Email</label>
+            </div>
+            <div class="">
+                <input #email="ngModel" [(ngModel)]="formData.email" type="email" placeholder="email" name="email" id="email" class="p-2 text-stone-900  m-2 block rounded" required>
+                <p *ngIf="email.invalid && (email.dirty || email.touched)" class="text-red-600">Please enter a valid email id.</p>
+            </div>
+            <div>
+                <label for="password" class="pr-2 m-2 block">Password</label>
+            </div>
+            <div>
+                <input #password="ngModel" [(ngModel)]="formData.password"  type="password" placeholder="password" name="password" id="password" class="p-2 text-stone-900  m-2 block rounded" required>
+                <p *ngIf="password.invalid && (password.dirty || password.touched)" class="text-red-600">Please enter a valid password.</p>
+            </div>
+        </div>
+        <div class="w-full my-4">
+            <button *ngIf="!isLoading;else loading" [disabled]="loginForm.invalid" type="submit" class="w-full bg-green-700 text-white hover:bg-emerald-500">Login</button>
+            <ng-template #loading><p class="p-2 bg-green-700 text-center text-white">Loading...</p></ng-template>
+        </div>
+        <div class="message-con p-2 text-center text-red-700">
+            {{errorMessage}}
+        </div>
+    </form>
+</div>
