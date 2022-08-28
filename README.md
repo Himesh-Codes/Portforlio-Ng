@@ -22,8 +22,11 @@
     - Add firebase CLI with npm install. (npm install -g firebase-tools)
     - For Deploying we use commands 
         - (firebase login) : To signin to google
-        - (firebase init): Intialise project, Run this command from your app’s root directory.
-        - (firebase deploy): To deploy, Put your static files (e.g., HTML, CSS, JS) in your app’s deploy directory (the default is “public”). Then, run this command from your app’s root directory 
+        - (firebase init): Intialise project, Run this command from your app’s root directory. (create firebase-debug.log, select hosting option)
+        - (firebase deploy): To deploy, Put your static files (e.g., HTML, CSS, JS) in your app’s deploy directory (the default is “public”). Then, run this command from your app’s root directory
+
+        - We change the directory to dist/PROJECTNAME by creating a build, and change in 'firebase.json'.
+        - And redeploy using firebase deploy.
     # Font-awesome
     - Inside Angular project use cmd: npm install @fortawesome/angular-fontawesome@<version>
             npm install @fortawesome/fontawesome-svg-core
