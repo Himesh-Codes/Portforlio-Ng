@@ -1,14 +1,25 @@
 <div id="globalBody">
     <nav class="nav-con">
-        <div class="nav-item-con">
+        <div class="nav-item-con hidden md:block">
             <div class="sticky-nav" id="navbar-sticky">
                 <ul class="nav-item-list">
-                    <li>
-                    <a routerLink="/home" class="not-active" routerLinkActive="active" aria-current="page">Home</a>
-                    </li>
-                    <li>
-                    <a routerLink="/contact" class="not-active" routerLinkActive="active">Contact</a>
-                    </li>
+                    <ng-container *ngIf="loggedIn">
+                        <li>
+                            <a routerLink="/home" class="not-active" routerLinkActive="active" aria-current="page">Home</a>
+                        </li>
+                        <li>
+                            <a routerLink="/contact" class="not-active" routerLinkActive="active">Contact</a>
+                        </li>
+                    </ng-container>
+                    <ng-container *ngIf="!loggedIn">
+                        <li>
+                            <a routerLink="/login" class="not-active" routerLinkActive="active">Login</a>
+                        </li>
+                        <li>
+                            <a routerLink="/register" class="not-active" routerLinkActive="active">Register</a>
+                        </li>
+                    </ng-container>
+                    
                 </ul>
             </div>
         </div>

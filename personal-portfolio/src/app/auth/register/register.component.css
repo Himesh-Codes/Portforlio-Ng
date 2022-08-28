@@ -1,0 +1,6 @@
+.signup-success{
+    @apply text-green-600;
+}
+.signup-error{
+    @apply text-red-600;
+}
